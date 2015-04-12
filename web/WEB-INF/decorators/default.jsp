@@ -25,7 +25,7 @@
 
 
     <!-- use as a base URL - makes subsequent URLs much cleaner since we don't need a context path -->
-    <base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/"/>
+    <base href="${pageContext.request.contextPath}/"/>
 
     <link rel='stylesheet' href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
