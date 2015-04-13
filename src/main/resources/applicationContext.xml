@@ -25,12 +25,17 @@
 
     <aop:aspectj-autoproxy/>
 
+    <!-- Configure the properties via placeholders. We will first read the properties file on the classpath,
+    which can be overridden via another properties file in the local home directory and finally by setting
+    the java parameter/environment variable NSESA_EDITOR_AN_PROPERTIES to a path
+    such as /any/path/nsesa-editor-an.properties. -->
     <bean id="propertyConfigurer"
           class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
         <property name="locations">
             <list>
                 <value>classpath:nsesa-editor-an.properties</value>
                 <value>file:///${user.home}/nsesa-editor-an.properties</value>
+                <value>file://#{ systemProperties['NSESA_EDITOR_AN_PROPERTIES'] }</value>
             </list>
         </property>
         <property name="ignoreUnresolvablePlaceholders" value="false"/>
